@@ -49,18 +49,18 @@ div.ui-datepicker {
 <div id="main">
 
 <div class="parent">
-    <span class="big">User: </span>
+    <span class="big">Doctor:&nbsp</span>
     <span class="small">
 	    <select name="UserSelect" id="UserSelect"></select>
 	</span>
 	<br>
-	<span class="big">Patient: </span>
+	<span class="big">Patient:</span>
 	<span class="small">
 		<select name="PatientSelect" id="PatientSelect"></select>
 	</span>
 </div>
 
-<!-- <button onclick="sendMail(); return false">Send</button> -->
+<!-- <button name="SMButton" onclick="sendMail(); return false">Send</button> -->
 
 <br>
 <!-- TABS START -->
@@ -68,7 +68,7 @@ div.ui-datepicker {
 	<ul>
 		<li><a href="#tabs-1">Enter Data</a></li>
 		<li><a href="#tabs-2">View Data</a></li>
-		<li><a href="#tabs-3">New Patient/New User</a></li>
+		<li><a href="#tabs-3">New Patient/New Doctor</a></li>
 	</ul>
 	
 	<div id="tabs-1">
@@ -84,9 +84,9 @@ div.ui-datepicker {
 				Minute: <input id="Minute" type="number" min="0" max="59"></input>
 				<input id="AM/PM" size=5></input> AM/PM <br><h6></h6>
 		Pain Level: <input id="Pain" type="number" min="0" max="10"></input> 0-10 <br><h6></h6>
-		Morphine Dose (mg): <input id="Morphine" type="number" min="0" max="100"></input> 0-100<br><h6></h6>
-		Dilaudid Dose (mg): <input id="Dilaudid" type="number" min="0" max="100"></input> 0-100<br><h6></h6>
-		Oxyfast Dose (mg): <input id="Oxyfast" type="number" min="0" max="100"></input> 0-100<br><h6></h6>
+		Morphine Dose (mg): <input id="Morphine" type="number" value="0" min="0" max="100"></input> 0-100<br><h6></h6>
+		Dilaudid Dose (mg): <input id="Dilaudid" type="number" value="0" min="0" max="100"></input> 0-100<br><h6></h6>
+		Oxyfast Dose (mg): <input id="Oxyfast" type="number" value="0" min="0" max="100"></input> 0-100<br><h6></h6>
 		<button name="EDButton" id="EDButton" onclick="enterDataButton()">Submit Data</button>
 		<button name="EDClearButton" onclick="clearInput('EnterData')">Clear Enter Data Screen</button>
 	</div>
@@ -125,15 +125,14 @@ div.ui-datepicker {
 		<button name="NPClearButton" onclick="clearInput('PatientInput')">Clear New Patient Screen</button>
 		
 	</p>
-		<h2>New User</h2>
-		Username: <input id="NUUsername"></input> <br><h6></h6>
+		<h2>New Doctor</h2>
 		First Name: <input id="NUFirstName"></input> <br><h6></h6>
 		Last Name: <input id="NULastName"></input> <br><h6></h6>
-		Password: <input id="NUPassword"></input> <br><h6></h6>
+		Password: <input id="NUPassword" type="password"></input> <br><h6></h6>
 		Email: <input id="NUEmail"></input> <br><h6></h6>
 		Phone Number: <input id="NUPhone"></input> <br><h6></h6>
-		<button name="NUButton" onclick="newUserButton()">Create New User</button>
-		<button name="NUClearButton" onclick="clearInput('UserInput')">Clear New User Screen</button>
+		<button name="NUButton" onclick="newUserButton()">Create New Doctor</button>
+		<button name="NUClearButton" onclick="clearInput('UserInput')">Clear New Doctor Screen</button>
 	</div>
 </div>
 <!-- TABS END -->

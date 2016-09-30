@@ -52,6 +52,7 @@ function enterDataButton()
 			success: function(datapoint)
 			{
 				alert("DataPoint saved to "+SelectedPatient.get("FullName"));
+				checkDataForPain(datapoint);
 			},
 			error: function(patient, error) 
 			{
@@ -88,7 +89,7 @@ function newPatientButton()
 function newUserButton()
 {
 	var user = new Parse.User();
-	user.set("username", document.getElementById("NUUsername").value);
+	user.set("username", document.getElementById("NUFirstName").value+" "+document.getElementById("NULastName").value);
 	user.set("firstname", document.getElementById("NUFirstName").value);
 	user.set("lastname", document.getElementById("NULastName").value);
 	user.set("password", document.getElementById("NUPassword").value);
@@ -98,7 +99,7 @@ function newUserButton()
 	{
 		success: function(user) 
 		{
-			alert("New User "+user.get("username")+" created!");
+			alert("New Doctor "+user.get("username")+" created");
 		},
 		error: function(user, error) 
 		{
