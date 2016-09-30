@@ -1,0 +1,160 @@
+<!doctype html>
+
+<head> 
+<meta charset="utf-8">
+<title>Patient Symptom Management System App</title>
+  
+<meta name="description" content="Patient Symptom Management System App">
+<meta name="viewport" content="width=device-width">
+  
+<link rel="stylesheet" href="css/reset.css"> 
+<link rel="stylesheet" href="css/styles.css"> 
+<script type="text/javascript" src="jquery-1.11.2.js"></script> 
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+
+<link rel="stylesheet" href="jquery-ui.min.css">
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.min.js"></script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="DataTables-1.10.5/media/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="DataTables-1.10.5/media/js/jquery.dataTables.js"></script>
+
+<style>
+h3{
+	line-height: 150%; 
+}
+h2 { 
+	text-align: center;
+}
+.big {
+    font-size: 25px;
+}
+.small {
+    font-size: 15px;
+}
+.right {
+	text-align: right;
+}
+div.ui-datepicker {
+	font-size:15px !important;
+}
+</style>
+
+</head>
+
+<body>
+<h2 class="demoHeaders">Patient Symptom Management System</h2>
+
+<div id="main">
+
+<div class="parent">
+    <span class="big">User: </span>
+    <span class="small">
+	    <select name="UserSelect" id="UserSelect"></select>
+	</span>
+	<br>
+	<span class="big">Patient: </span>
+	<span class="small">
+		<select name="PatientSelect" id="PatientSelect"></select>
+	</span>
+</div>
+
+<!-- <button onclick="sendMail(); return false">Send</button> -->
+
+<br>
+<!-- TABS START -->
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Enter Data</a></li>
+		<li><a href="#tabs-2">View Data</a></li>
+		<li><a href="#tabs-3">New Patient/New User</a></li>
+	</ul>
+	
+	<div id="tabs-1">
+		<h2 id="EnterDataTitle">Enter Data</h2>
+		<!-- //date: datepicker
+		//time: 3 boxes, Am/pm hour 1-12, minute,
+		//pain: number type input: 0 to 10
+		//morphine dose: 0 to 100 mg
+		//dilaudid dose: 0 to 100 mg
+		//oxyfast dose: 0 to 100 mg -->
+		Date: <input type="text" id="datepicker"></p>
+		Hour: <input id="Hour" type="number" min="1" max="12"></input>
+				Minute: <input id="Minute" type="number" min="0" max="59"></input>
+				<input id="AM/PM" size=5></input> AM/PM <br><h6></h6>
+		Pain Level: <input id="Pain" type="number" min="0" max="10"></input> 0-10 <br><h6></h6>
+		Morphine Dose (mg): <input id="Morphine" type="number" min="0" max="100"></input> 0-100<br><h6></h6>
+		Dilaudid Dose (mg): <input id="Dilaudid" type="number" min="0" max="100"></input> 0-100<br><h6></h6>
+		Oxyfast Dose (mg): <input id="Oxyfast" type="number" min="0" max="100"></input> 0-100<br><h6></h6>
+		<button name="EDButton" id="EDButton" onclick="enterDataButton()">Submit Data</button>
+		<button name="EDClearButton" onclick="clearInput('EnterData')">Clear Enter Data Screen</button>
+	</div>
+	
+	<div id="tabs-2">
+		<button name="TBSortButton" onclick="sortData()">Sort Data Chronologically</button> <br><h6></h6>
+		<table id="table_id" name="DataTable" class="display">
+		    <thead>
+		        <tr>
+		            <th>Year</th>
+		            <th>Month</th>
+		            <th>Day</th>
+		            <th>AM/PM</th>
+		            <th>Hour</th>
+		            <th>Minute</th>
+		            <th>Timestamp</th>
+		            <th>Pain</th>
+		            <th>Morphine</th>
+		            <th>Dilaudid</th>
+		            <th>Oxyfast</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    </tbody>
+		</table>
+	</div>
+	
+	<div id="tabs-3">
+	<p>
+		<h2>New Patient</h2>
+		First Name: <input id="NPFirstName"></input> <br><h6></h6>
+		Last Name: <input id="NPLastName"></input> <br><h6></h6>
+		Email: <input id="NPEmail"></input> <br><h6></h6>
+		Age: <input id="NPAge" type="number" min="1" max="150"></input> <br><h6></h6>
+		<button name="NPButton" onclick="newPatientButton()">Create New Patient</button>
+		<button name="NPClearButton" onclick="clearInput('PatientInput')">Clear New Patient Screen</button>
+		
+	</p>
+		<h2>New User</h2>
+		Username: <input id="NUUsername"></input> <br><h6></h6>
+		First Name: <input id="NUFirstName"></input> <br><h6></h6>
+		Last Name: <input id="NULastName"></input> <br><h6></h6>
+		Password: <input id="NUPassword"></input> <br><h6></h6>
+		Email: <input id="NUEmail"></input> <br><h6></h6>
+		Phone Number: <input id="NUPhone"></input> <br><h6></h6>
+		<button name="NUButton" onclick="newUserButton()">Create New User</button>
+		<button name="NUClearButton" onclick="clearInput('UserInput')">Clear New User Screen</button>
+	</div>
+</div>
+<!-- TABS END -->
+
+  
+</div>
+
+<!-- UI SCRIPT -->
+<script src="JQueryUIScript.js"></script>
+<!-- UI SCRIPT END -->
+
+<!-- PARSE SCRIPT -->
+<script src="ParseScript.js"></script>
+<!-- PARSE SCRIPT END -->
+
+<!-- TABLE SCRIPT -->
+<script src="TableScript.js"></script>
+<!-- TABLE SCRIPT END -->
+
+</body>
+
+
+
+</html>
